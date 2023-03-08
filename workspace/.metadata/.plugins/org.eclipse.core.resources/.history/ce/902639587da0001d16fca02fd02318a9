@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Test_01 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("===계산기 프로그램===");
+		System.out.print("연산자 입력(+,-,*,/ : ");
+		sc.nextLine();
+		System.out.println("첫번째 숫자 입력 : ");
+	
+		
+	}
+}
