@@ -1,0 +1,153 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.graalvm.compiler.hotspot.stubs.NullPointerExceptionStub;
+
+import dto.Student_Dto;
+
+public class Student_Dao {
+	
+	// try ~ catch
+	// try ~ catch, catch, catch...
+	// try ~ finally
+	// try ~ catch- finally
+	// try with resources
+	
+	public Connection getConnection() throws Exception {
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String id="kh";
+		String pw="kh";
+		Connection con = DriverManager.getConnection(url,id,pw);
+		
+		return con;
+	}
+	
+	public int insert(String name, int kor, int eng, int math) throws Exception {
+		
+		try {
+		Connection con = this.getConnection();	//
+		Statement stat = con.createStatement();	//
+		String sql = "INSERT INTO STUDENTS VALUES(students_seq.nextval,'"+name+"',"+kor+","+eng+","+math+")";
+		int result = stat.executeUpdate(sql);	//
+		
+		con.commit();
+		con.close();
+		return result;	
+		}catch(NullPointerException npe) {
+			
+		}catch(NumberFormatException nfe) {
+			
+		}catch(SQLException se) {
+			
+		}
+	}
+	
+	public List<Student_Dto> select() throws Exception{
+		Connection con = this.getConnection();
+		Statement stat = con.createStatement();
+		String sql = "SELECT * FROM STUDENTS";
+		ResultSet rs = stat.executeQuery(sql);
+		
+		List<Student_Dto> result = new ArrayList<Student_Dto>();
+				
+		while(rs.next()) {
+			int id = rs.getInt("ID");
+			String name = rs.getString("NAME");
+			int kor = rs.getInt("KOR");
+			int eng = rs.getInt("ENG");
+			int math = rs.getInt("MATH");
+			
+			Student_Dto dto = new Student_Dto(id,name,kor,eng,math);
+			
+			result.add(dto);
+		}
+		
+		con.commit();
+		con.close();
+		return result;
+	}
+	
+	public int update(int id, int kor, int eng, int math) throws Exception {
+		Connection con = this.getConnection();
+		Statement stat = con.createStatement();
+		String sql="UPDATE STUDENTS SET kor="+kor+",ENG = "+eng+",MATH ="+math+" WHERE ID ="+ id +"";
+		int result = stat.executeUpdate(sql);
+		
+		con.commit();
+		con.close();
+		return result;
+	}
+	
+	public boolean isExist(int id) throws Exception {
+		Connection con = this.getConnection();
+		Statement stat = con.createStatement();
+		String sql = "SELECT * FROM STUDENTS WHERE ID ="+id+"";
+		ResultSet rs = stat.executeQuery(sql);
+		boolean result = rs.next();
+		
+		con.commit();
+		con.close();
+		return result;
+		
+	}
+	
+	public int delete(int id) throws Exception {
+		Connection con = this.getConnection();
+		Statement stat =con.createStatement();
+		String sql = "DELETE FROM STUDENTS WHERE ID ="+ id +"";
+		int result = stat.executeUpdate(sql);
+		
+		con.commit();
+		con.close();
+		return result;
+	}
+	
+	public List<Student_Dto> issele(String name) throws Exception {
+		Connection con = this.getConnection();
+		Statement stat = con.createStatement();
+		String sql = "select * from students where name like '%"+name+"%'";
+		ResultSet rs = stat.executeQuery(sql);
+		
+		List<Student_Dto> result = new ArrayList<Student_Dto>();
+		
+		while(rs.next()) {
+			int id = rs.getInt("id");
+			String nname = rs.getString("name");
+			int kor = rs.getInt("kor");
+			int eng = rs.getInt("eng");
+			int math = rs.getInt("math");
+			
+			Student_Dto dto = new Student_Dto(id, nname, kor, eng, math); 
+			
+			result.add(dto);
+		}
+		
+		con.commit();
+		con.close();
+		return result;
+	}
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

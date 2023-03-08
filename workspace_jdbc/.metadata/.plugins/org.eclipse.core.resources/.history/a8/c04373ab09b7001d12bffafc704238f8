@@ -1,0 +1,10 @@
+package DTO;
+
+public class MembersDTO {
+	private String id;
+	private String pw;
+	private String name;
+	private String contact;
+	private Timestamp reg_date;
+	
+}

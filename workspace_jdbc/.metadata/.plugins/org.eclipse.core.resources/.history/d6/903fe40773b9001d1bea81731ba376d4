@@ -1,0 +1,58 @@
+package main;
+
+import java.util.Scanner;
+
+import commons.EncryptionUtils;
+import dao.MembersDAO;
+import dto.MembersDTO;
+
+public class Main {
+	public static void main(String[] args) {
+		MembersDAO membersdao = new MembersDAO();
+		try(Scanner sc = new Scanner(System.in);){
+			System.out.println("1.로그인");
+			System.out.println("2.회원가입 - (아이디 패스워드 이름 연락처)");
+			System.out.println("3.종료");
+			System.out.print(">>");
+
+			int menu = Integer.parseInt(sc.nextLine());
+			try {
+				if(menu==1) {
+					System.out.println("< < 로그인 > >");
+					
+					System.out.print("id : ");
+					String id = sc.nextLine();
+					System.out.println("pw : ");
+					String pw = EncryptionUtils.sha512(sc.nextLine());
+					
+					membersdao.login(new MembersDTO(id,pw,null,null,null));
+					
+				}else if(menu==2) {
+					System.out.print("id 입력 : ");
+					String id = sc.nextLine();
+					System.out.print("pw 입력 : ");
+					String pw = EncryptionUtils.sha512(sc.nextLine());
+					
+					
+					System.out.print("이름 입력 : ");
+					String name = sc.nextLine();
+					System.out.print("연락처 입력 : ");
+					String contact = sc.nextLine();
+
+					int result = membersdao.insert(new MembersDTO(id,pw,name,contact,null));
+					if(result>0) {
+						System.out.println("아이디 생성");
+					}else {
+						System.out.println("실패");
+					}
+				}else if(menu==3) {
+					System.out.println("종료");
+					System.exit(0);
+				}
+			}catch(Exception e ) {
+				System.out.println("접속실패");
+				e.printStackTrace();
+			}
+		}
+	}
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  /* 반응 선택자 */
+        p:hover {
+            background-color: blueviolet;
+            cursor: pointer;
+        }
+
+        p:active {
+            border: 1px solid red;
+        }
+
+        div.c {
+            /* div 태그 중 클래스 이름이 c인 요소 */
+            color: tomato;
+        }
+
+        [id] {
+            /* ID 속성을 가진 모든 요소*/
+
+        }
+
+        .c,
+        .d {
+            /* 클래스 이름이 .c이거나 .d인 요소 */
+            color: red;
+        }
+
+        #a1.class {
+            /* ID가 a1 이면서 class 이름이 class 인 요소*/
+            background-color: antiquewhite;
+        }
+
+        [class^=a][class$=d] {
+            /*class 속성이 a로 시작하고 d로 끝나는 요소 */
+            color: red;
+        }
+
+        p:not(.c) {
+            border: 1px solid black;
+        }
+
+        p:not(:last-child) {
+            background-color: forestgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- p[class=c$]{Hover Test $}*5 -->
+
+    <p class="c">Hover Test 1</p>
+    <p class="c">Hover Test 2</p>
+    <p class="c">Hover Test 3</p>
+    <p class="d">Hover Test 4</p>
+    <p class="d">Hover Test 5</p>
+
+    <div class="c">Hover div 1</div>
+    <div class="c">Hover div 2</div>
+    <div class="c">Hover div 3</div>
+    <div class="c">Hover div 4</div>
+    <div class="c">Hover div 5</div>
+
+    <p class="c">abc</p>
+    <p class="c">abc</p>
+    <p class="c">abc</p>
+    <p class="c">abc</p>
+    <p class="c">abc</p>
+
+</body>
+
+</html>

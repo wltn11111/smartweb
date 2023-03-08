@@ -1,0 +1,147 @@
+package manager;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import DTO.Movies_DTO;
+
+// 데이터와 관련된 모든 작업을 총괄하는 클래스
+// DAO : Data Access Object
+public class Movies_DAO {
+
+	private Connection getConnection() throws Exception {
+		String url ="jdbc:oracle:thin:@localhost:1521:xe";
+		String id ="kh";
+		String pw ="kh";
+		Connection con = DriverManager.getConnection(url,id,pw);	// 기능당 하나씩 만들어야 좋음(만들었으면close())
+		return con;
+	}
+	public int insert(String title, String genre) throws Exception{
+
+		String sql ="INSERT INTO movies VALUES(movies_seq.nextval,'"+title+"','"+genre+"')";
+		try(
+		Connection con = this.getConnection();	
+		PreparedStatement stat = con.prepareStatement(sql);){
+
+		int result = stat.executeUpdate(sql);
+
+		con.commit();
+		return result;
+
+		}
+	}
+
+	public int update(int nid, String title, String genre) throws Exception {
+
+		String url ="jdbc:oracle:thin:@localhost:1521:xe";
+		String id ="kh";
+		String pw ="kh";
+
+		Connection con = DriverManager.getConnection(url,id,pw);	// 기능당 하나씩 만들어야 좋음(만들었으면close())
+		Statement stat = con.createStatement();
+
+		String sql="UPDATE movies SET title='"+title+"',genre='"+genre+"' WHERE id="+nid+"";
+		int result = stat.executeUpdate(sql);
+
+		con.commit();
+		con.close();
+
+		return result;
+	}
+	public int delete(int nid) throws Exception {
+
+		String url ="jdbc:oracle:thin:@localhost:1521:xe";
+		String id ="kh";
+		String pw ="kh";
+
+		Connection con = DriverManager.getConnection(url,id,pw);	// 기능당 하나씩 만들어야 좋음(만들었으면close())
+		Statement stat = con.createStatement();
+
+		String sql = "DELETE FROM MOVIES WHERE id= "+nid+"";
+		int result = stat.executeUpdate(sql);
+
+		con.commit();
+		con.close();
+
+		return result;
+
+	}
+	public List<Movies_DTO> SelectAll() throws Exception {		// ResultSet :Connection 세션이 열려있는동안만 사용가능.
+		
+		Connection con = this.getConnection();
+		Statement stat = con.createStatement();
+		String sql="SELECT * FROM movies";
+		ResultSet rs = stat.executeQuery(sql);
+
+		List<Movies_DTO> result = new ArrayList();
+
+		while(rs.next()) {
+			int nid = rs.getInt("id");
+			String title = rs.getString("title");
+			String genre = rs.getString("genre");
+			
+			Movies_DTO dto = new Movies_DTO(nid,title,genre);
+			
+			result.add(dto);
+		}
+		con.close();
+		return result;
+	}
+	
+	public List<Movies_DTO> Search(String title) throws Exception {
+		Connection con = this.getConnection();
+		Statement stat = con.createStatement();
+
+		String sql="SELECT * FROM movies WHERE title like '%"+title+"%'";
+		ResultSet rs = stat.executeQuery(sql);
+		
+		List<Movies_DTO> result = new ArrayList<Movies_DTO>();
+
+		while(rs.next()) {
+			int nid = rs.getInt("id");
+			String ntitle = rs.getString("title");
+			String genre = rs.getString("genre");
+			
+			Movies_DTO dto = new Movies_DTO(nid,ntitle,genre);
+			
+			result.add(dto);
+		}
+
+		con.close();
+		return result;
+	}
+	
+	public boolean isIdExist(int id) throws Exception {
+		Connection con =this.getConnection();
+		Statement stat =con.createStatement();
+		String sql = "select * from movies where id = " + id;
+		ResultSet rs = stat.executeQuery(sql);	
+		boolean result = rs.next();
+		con.close();
+		return result;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
