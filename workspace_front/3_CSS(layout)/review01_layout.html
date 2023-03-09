@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
             box-sizing: border-box;
@@ -90,11 +93,6 @@
             width: 30%;
         }
 
-        .info>div {
-            width: 100%;
-            float: left;
-        }
-
         .logobox {
             height: 35%;
         }
@@ -110,11 +108,6 @@
         .container1 {
             width: 100%;
             height: 100%;
-        }
-
-        .container1>div {
-            width: 100%;
-            float: left;
         }
 
         .loginbox {
@@ -141,16 +134,15 @@
         }
 
         .BTBT {
-
-            margin-left: 8px;
-            margin-top: 30px;
+            position: relative;
+            top: 30%;
             width: 70%;
-            height: 30%;
+            height: 40%;
         }
 
-        .idpw>div {
-            width: 100%;
-            float: left;
+        .BTBT:hover {
+            background-color: white;
+            border-color: blue;
         }
 
         .ID {
@@ -171,10 +163,6 @@
             height: 100%;
         }
 
-        .email>div {
-            float: left;
-            width: 100%;
-        }
 
         .emailbox {
             height: 10%;
@@ -207,7 +195,7 @@
             <div class="info">
                 <div class="logobox">
                     <div class="container1">
-                        <div class="loginbox" align="center">Loginbox</div>
+                        <div class="loginbox" align="center"><i class="fa-solid fa-user"></i>Loginbox</div>
                         <div class="body1">
                             <div class="idpw">
                                 <div class="ID"><input class="IDID" type="text" placeholder="ID를 입력하세요."></div>
@@ -218,10 +206,11 @@
                     </div>
                 </div>
                 <div class="email">
-                    <div class="emailbox">Mail box</div>
+                    <div class="emailbox"><i class="fa-regular fa-envelope"></i>Mail box</div>
                     <div class="emailbox1">
-
-                        <div>1번째 메일입니다.</div>
+                        <a href="#">
+                            <div>1번째 메일입니다.</div>
+                        </a>
                         <div>2번째 메일입니다.</div>
                         <div>3번째 메일입니다.</div>
                         <div>4번째 메일입니다.</div>

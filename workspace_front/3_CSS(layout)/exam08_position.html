@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        div{border: 1px solid black;}
+        .container{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            position: relative;
+        }
+        .box{width: 100px;height: 100px;}
+        #box1{
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            background-color: pink;
+        }
+        #box2{
+            position: absolute;
+            top: 30px;
+            left: 100px;
+            background-color: yellow;
+        }
+        #box3{
+            position: absolute;
+            top: 100px;
+            left: 70px;
+            background-color: green;
+        }
+        .box:hover{
+            z-index: 5;
+        }
+        .ebox{
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <dov class="ebox"></dov>
+
+    <div class="container">
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="box3"></div>
+    </div>
+</body>
+</html>
