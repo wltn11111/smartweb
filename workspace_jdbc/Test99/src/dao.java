@@ -28,7 +28,8 @@ public class dao {
 
 		String query = "SELECT * FROM SHOP_MEMBER WHERE MEMBER_ID = '"+memberId+"'";
 		// 1. preparedStatement가 아니고 Statement로 작성하여서 ?가 아닌 매개변수를 query문에 넣어주어야함
-
+		               // ? -> '"+memberId+"' 
+		
 		stmt = con.createStatement(); 
 		// 2. stmt = con.prepapareStatement(query); -> stmt = con.createStatement();
 
