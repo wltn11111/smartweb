@@ -137,7 +137,6 @@ public class Main {
 						for(MessagesDTO dto : list) {
 								System.out.println(dto.getSeq()+"\t"+dto.getWriter()+"\t"+dto.getMessage()+"\t"+dto.getWrite_date());
 						}
-
 					}else if(menu==6) {
 						System.out.println("내정보 보기 (아이디 이름 연락처 가입일[]");
 						

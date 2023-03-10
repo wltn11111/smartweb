@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+            border: 1px solid black;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        #box1 {
+            position: absolute;
+            top: 30px;
+            left: 50px;
+        }
+
+        #box1:hover {
+            transform: rotate(45deg);
+        }
+
+        #box2 {
+            position: absolute;
+            top: 30px;
+            right: 150px;
+        }
+
+        #box2:hover{
+            position: fixed;
+            height: 200px;
+            transition-duration: 1s;
+        }
+
+        #box3 {
+            position: absolute;
+            top: 150px;
+            left: 50px;
+        }
+
+        #box3:hover {
+            transition-duration: 1s;
+            transform: translate(100px,200px);
+        }
+
+        #box4 {
+            position: absolute;
+            bottom: 80px;
+            left: 90px;
+        }
+        #box4:hover{
+            scale: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box1">rotate</div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3">translate</div>
+    <div class="box" id="box4">scale</div>
+</body>
+
+</html>

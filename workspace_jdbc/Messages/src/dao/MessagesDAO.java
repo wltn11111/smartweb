@@ -25,7 +25,6 @@ public class MessagesDAO {
 
 	private Connection getConnection() throws Exception {
 		return bds.getConnection();
-
 	}
 
 	public int insert(MessagesDTO dto) throws Exception {
