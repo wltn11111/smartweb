@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        div{
+            border: 1px solid black;
+        }
+        i{
+            position: absolute;
+            top: 80px;
+            right: 0px;
+        }
+        .box {
+            margin: auto;
+            width: 400px;
+            height: 1600px;
+        }
+
+        .icon {
+            width: 200px;
+            height: 200px;
+            position: fixed;
+            float: left;
+            top: 50%;
+            left: -170px;
+            transition-duration: 1s;
+            background-color: gray;
+        }
+
+        .icon2 {
+            width: 10%;
+            position: absolute;
+            top: 0%;
+            height: 200px;
+            background-color: blanchedalmond;
+        }
+
+        .icon:hover {
+            transform: translate(170px);
+        }
+        .icon:hover i{
+            opacity: 0%;
+        }
+        ul {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        li {
+            list-style-type: none;
+            height: 20%;
+        }
+        .icon:hover li{
+            border: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="icon">
+            <ul>
+                <li>Home</li>
+                <li>About Me</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
+            </ul>
+            <i class="fa-solid fa-check"></i>
+        </div>
+</body>
+
+</html>
