@@ -1,0 +1,10 @@
+package resources;
+
+public class messageViewe {
+
+    public static void printHello(String name) {
+        
+        
+    }
+
+}

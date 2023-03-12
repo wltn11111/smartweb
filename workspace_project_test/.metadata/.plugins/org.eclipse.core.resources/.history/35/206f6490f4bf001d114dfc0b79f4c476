@@ -1,0 +1,21 @@
+package domain;
+
+import java.sql.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+
+
+@Data
+@AllArgsConstructor
+public final class Member {
+	private String id;
+	private String pw;
+	private String name;
+	private String contact;
+	private Date registeredDate;
+	
+	
+	
+}

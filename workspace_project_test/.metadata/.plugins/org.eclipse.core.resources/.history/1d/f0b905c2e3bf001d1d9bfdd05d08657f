@@ -1,0 +1,66 @@
+package repository;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.sql.DataSource;
+
+import domain.Member;
+
+public class MemberRepository {
+	
+	private final DataSource dataSource;
+
+	public MemberRepository(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	public Member findByIdAndPw(String id, String pw) throws Exception {
+		String sql = "SELECT * FROM members WHERE id = ? AND pw = ?";
+		try (
+				Connection connection = dataSource.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(sql)
+		) {
+			preparedStatement.setString(1, id);
+			preparedStatement.setString(2, pw);
+			
+			try (ResultSet resultSet = preparedStatement.executeQuery()) {
+				if (resultSet.next()) {
+					return getMember(resultSet);
+				}
+			}
+		}
+		throw new Exception("로그인 실패");
+	}
+
+	private Member getMember(ResultSet resultSet) throws Exception {
+		Member member = new Member();
+		member.setId(resultSet.getString("id"));
+		member.setPw(resultSet.getString("pw"));
+		member.setName(resultSet.getString("name"));
+		member.setContact(resultSet.getString("contact"));
+		member.setRegisteredDate(resultSet.getDate("reg_date"));
+		return member;
+	}
+
+	public void insert(Member member) throws Exception {
+		String sql = "INSERT INTO members VALUES(?, ?, ?, ?, DEFAULT)";
+		try (
+				Connection connection = dataSource.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(sql)
+		) {
+			preparedStatement.setString(1, member.getId());
+			preparedStatement.setString(2, member.getPw());
+			preparedStatement.setString(3, member.getName());
+			preparedStatement.setString(4, member.getContact());
+			
+			if (preparedStatement.executeUpdate() == 1) {
+				connection.commit();
+			}
+		}
+		throw new Exception("회원가입 실패");
+		
+	}
+
+}

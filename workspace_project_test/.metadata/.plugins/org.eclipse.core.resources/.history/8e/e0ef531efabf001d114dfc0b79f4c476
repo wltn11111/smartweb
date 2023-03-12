@@ -1,0 +1,20 @@
+package resources;
+
+import java.util.Scanner;
+
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+public class MessageViewer {
+    
+    @NonNull
+    private final Scanner scanner;
+
+    public static void printHello(Scanner scanner) {
+        System.out.println();
+        System.out.printf();
+
+    }
+
+}

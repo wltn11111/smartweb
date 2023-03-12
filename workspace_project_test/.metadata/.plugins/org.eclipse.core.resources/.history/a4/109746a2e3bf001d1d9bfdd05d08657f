@@ -1,0 +1,7 @@
+CREATE TABLE member (
+	id VARCHAR(30) PRIMARY KEY,
+	pw VARCHAR(64) NOT NULL,
+	name VARCHAR(20) NOT NULL,
+    contact VARCHAR(20) NOT NULL,
+	reg_date DATE DEFAULT sysdate
+);

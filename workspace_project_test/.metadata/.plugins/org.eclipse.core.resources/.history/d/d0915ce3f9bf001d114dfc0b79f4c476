@@ -1,0 +1,14 @@
+package resources;
+
+import java.util.Scanner;
+
+public class MessageViewer {
+
+    private final Scanner scanner;
+    public static void printHello(Scanner scanner) {
+        System.out.println();
+        System.out.printf();
+        
+    }
+
+}

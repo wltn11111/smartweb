@@ -1,0 +1,73 @@
+package domain;
+
+import java.sql.Date;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+
+public final class Member {
+	private String id;
+	private String pw;
+	private String name;
+	private String contact;
+	private Date registeredDate;
+	
+	@Getter
+	@Setter
+	@ToString
+//	public Member() {
+//	}
+//
+//	public Member(String id, String pw, String name, String contact, Date registeredDate) {
+//		super();
+//		this.id = id;
+//		this.pw = pw;
+//		this.name = name;
+//		this.contact = contact;
+//		this.registeredDate = registeredDate;
+//	}
+//
+//	public String getId() {
+//		return id;
+//	}
+//
+//	public void setId(String id) {
+//		this.id = id;
+//	}
+//
+//	public String getPw() {
+//		return pw;
+//	}
+//
+//	public void setPw(String pw) {
+//		this.pw = pw;
+//	}
+//
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//	public String getContact() {
+//		return contact;
+//	}
+//
+//	public void setContact(String contact) {
+//		this.contact = contact;
+//	}
+//
+//	public Date getRegisteredDate() {
+//		return registeredDate;
+//	}
+//
+//	public void setRegisteredDate(Date registeredDate) {
+//		this.registeredDate = registeredDate;
+//	}
+//	
+	
+}
