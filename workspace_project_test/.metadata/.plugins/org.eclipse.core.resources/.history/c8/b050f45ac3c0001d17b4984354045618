@@ -1,0 +1,83 @@
+package repository;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import domain.Message;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+public class MessageRepository {
+
+    @NonNull
+    private final DataSource dataSource;
+
+    public void insert(String id, String message) throws Exception {
+        String sql = "INSERT INTO messages values(seq_messages.nextval,?,?,DEFAULT)";
+        try(Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);){
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, message);
+
+            if(preparedStatement.executeUpdate() == 1) {
+                connection.commit();
+                return;
+            }
+        }
+        throw new Exception("메세지 등록에 실패하였습니다.");
+    }
+
+    public List<Message> selectAllmessage() throws Exception {
+        String sql = "SELECT * FROM MESSAGES";
+        try(Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                ){
+            try(ResultSet resultSet = preparedStatement.executeQuery();){
+                ArrayList<Message> message = new ArrayList<>();
+
+                while(resultSet.next()) {
+                    message.add(getMessage(resultSet));
+                }
+                return message;
+            }
+        }catch(Exception e) {
+            throw new Exception("메세지 불러오기 실패");
+        }
+    }
+
+    private Message getMessage(ResultSet resultset) throws Exception {
+        int id = resultset.getInt("id");
+        String member_id = resultset.getString("memeber_id");
+        String message = resultset.getString("message");
+        Date write_date = resultset.getDate("write_date");
+
+        return Message.builder()
+                .id(id)
+                .member_id(member_id)
+                .message(message)
+                .write_date(write_date)
+                .build();
+    }
+
+    public void deletemessage(int id) throws Exception {
+        String sql ="DELETE FROM MESSAGES WHERE MEMBERS_ID =?";
+        try(Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);){
+            preparedStatement.setString(1, sql);
+            
+            if(preparedStatement.executeUpdate() == 1) {
+                connection.commit();
+                return;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,43 @@
+package repository;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+public class MessageRepository {
+
+    @NonNull
+    private final DataSource dataSource;
+
+    public void insert(String id, String message) throws Exception {
+        String sql = "INSERT INTO messages values(seq_messages.nextval,?,?,DEFAULT)";
+        try(Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);){
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, message);
+
+            if(preparedStatement.executeUpdate() == 1) {
+                connection.commit();
+                return;
+            }
+        }
+        throw new Exception("메세지 등록에 실패하였습니다.");
+    }
+
+    public void selectAllmessage() throws Exception {
+        String sql = "SELECT * FROM MESSAGES";
+        try(Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                ){
+            ResultSet resultSet = preparedStatement.executeQuery();
+        }
+    }
+
+}
