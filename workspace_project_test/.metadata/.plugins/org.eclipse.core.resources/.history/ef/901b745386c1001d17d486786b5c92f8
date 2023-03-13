@@ -1,0 +1,34 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+
+public class MyDataSources {
+
+    public static DataSource getInstance(String fileName) {
+        Properties properties = new Properties();
+        try(FileInputStream fileInputStream = new FileInputStream(fileName)){
+            properties.load(fileInputStream);
+        } catch (IOException e) {
+             throw new RuntimeException(e);
+        }
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setUrl(properties.getProperty("url"));
+        basicDataSource.setUsername(properties.getProperty("username"));
+        basicDataSource.setPassword(properties.getProperty("password"));
+        basicDataSource.setInitialSize(Integer.parseInt(properties.getProperty("initial_size")));
+        basicDataSource.setDefaultAutoCommit(
+                Boolean.valueOf(
+                        properties.getProperty("default_auto_commit","false")
+                        )
+                );
+
+        return basicDataSource;
+    }
+
+
+}

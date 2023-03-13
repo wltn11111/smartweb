@@ -1,0 +1,8 @@
+CREATE TABLE messages (
+    seq        NUMBER DEFAULT seq_messages.NEXTVAL PRIMARY KEY,
+    id         VARCHAR(30) NOT NULL
+        REFERENCES members ( id )
+            ON DELETE SET NULL,
+    message    VARCHAR(300) NOT NULL,
+    write_date DATE DEFAULT sysdate
+);
