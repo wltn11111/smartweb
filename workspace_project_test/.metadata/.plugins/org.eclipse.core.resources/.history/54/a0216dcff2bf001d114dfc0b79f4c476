@@ -1,0 +1,22 @@
+package domain;
+
+import java.sql.Date;
+
+import lombok.Data;
+import lombok.Getter;
+
+
+@Data
+public final class Member {
+	private String id;
+	private String pw;
+	private String name;
+	private String contact;
+	private Date registeredDate;
+	
+	
+
+
+	
+	
+}

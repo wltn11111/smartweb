@@ -1,0 +1,18 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+public class MyDataSources {
+    
+    public static DataSource getInstance(String fileName) throws Exception {
+        Properties properties = new Properties();
+        try(FileInputStream fileInputStream = new FileInputStream(fileName)){
+            properties.load(fileInputStream);
+        }
+    }
+    
+    
+}

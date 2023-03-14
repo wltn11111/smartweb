@@ -1,0 +1,14 @@
+package domain;
+
+import java.sql.Date;
+
+import lombok.Value;
+
+@Value
+public class Message {
+    int id;
+    String member_id;
+    String message;
+    Date write_date;
+    
+}

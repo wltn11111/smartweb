@@ -1,0 +1,14 @@
+package repository;
+
+import javax.sql.DataSource;
+
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+public class MessageRepository {
+    
+    @NonNull
+    private final DataSource dataSource;
+
+}

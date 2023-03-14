@@ -1,0 +1,63 @@
+package resources;
+
+import java.util.List;
+import java.util.Scanner;
+
+import domain.Message;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+public class MessageViewer {
+    
+    @NonNull
+    private final Scanner scanner;
+
+    public static void printHello(String name) {
+        System.out.println();
+        System.out.printf("%s님 환영합니다!%n", name);
+
+    }
+
+    public String askCommand() {
+        System.out.println();
+        System.out.println("1. 신규 메세지 등록");
+        System.out.println("2. 메세지 목록 출력");
+        System.out.println("3. 메세지 삭제");
+        System.out.println("4. 메세지 수정");
+        System.out.println("5. 메세지 검색");
+        System.out.println("6. 내 정보보기");
+        System.out.println("0. 시스템 종료");
+        System.out.print("원하는 서비스 번호를 입력하세요 >>");
+        return scanner.nextLine();
+    }
+
+    public String askmessage() {
+        System.out.println("메세지를 입력하세요");
+        System.out.print(">> ");
+        return scanner.nextLine();
+    }
+
+    public void printInsertion() {
+        System.out.print("메세지를 등록하였습니다.");
+    }
+
+    public void printException(String message) {
+        System.out.print(message);        
+    }
+
+    public void printselectmessage(List<Message> list) {
+        System.out.println("ID\tMEMBER_ID\tMESSAGE\tWRITE_DATE");
+        for(Message message : list) {
+           System.out.println(message.getId()+"\t"+message.getMember_id()
+           +"\t"+message.getMessage()+"\t"+message.getWrite_date());
+        }
+    }
+
+    public int askmember_id() {
+        System.out.println("글번호를 입력하세요");
+        System.out.print(">>");
+        return scanner.nextLine();
+    }
+
+}

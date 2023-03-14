@@ -1,0 +1,11 @@
+package resources;
+
+public class MessageViewe {
+
+    public static void printHello(String name) {
+        System.out.println();
+        System.out.printf();
+        
+    }
+
+}

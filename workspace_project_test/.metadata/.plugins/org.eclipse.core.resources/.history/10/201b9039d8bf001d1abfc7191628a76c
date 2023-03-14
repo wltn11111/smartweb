@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+
+import view.LoginViewer;
+
+public class Main {
+	
+	private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	private static final String USERNAME = "board";
+	private static final String PASSWROD = "board";
+	private static final int INITIAL_SIZE = 8;
+	
+	private static final DataSource dataSource = initDataSource();
+	
+	private static final Scanner scanner = new Scanner(System.in);
+	
+	private static final LoginViewer loginViewer = new LoginViewer(scanner);
+	
+
+	public static void main(String[] args) {
+		String command = loginViewer.askCommand();
+	}
+
+
+	private static DataSource initDataSource() {
+		BasicDataSource basicDataSource = new BasicDataSource();
+		basicDataSource.setUrl(URL);
+		basicDataSource.setUsername(USERNAME);
+		basicDataSource.setPassword(PASSWROD);
+		basicDataSource.setInitialSize(INITIAL_SIZE);
+		return basicDataSource;
+	}
+
+}

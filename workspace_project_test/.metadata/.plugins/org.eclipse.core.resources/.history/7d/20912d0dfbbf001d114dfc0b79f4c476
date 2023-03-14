@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+
+import domain.Member;
+import repository.MemberRepository;
+import resources.MessageViewer;
+import resources.massageViewer;
+import view.MemberViewer;
+
+public class Main {
+
+    private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+    private static final String USERNAME = "board";
+    private static final String PASSWROD = "board";
+    private static final int INITIAL_SIZE = 8;
+
+    private static final DataSource dataSource = initDataSource();
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    private static final MemberViewer memberViewer = new MemberViewer(scanner);
+    private static final MessageViewer messageViwer = new MessageViewer(scanner);
+    private static final MemberRepository memberRepository = new MemberRepository(dataSource);
+
+    public static void main(String[] args) {
+        Member member = login();
+        message(member);
+    }
+
+    private static void message(Member member) {
+        while(true) {
+            messageViwer.printHello(member.getName());
+            String command = messageViwer.askCommand();
+        }
+        
+    }
+
+    private static Member login() {
+        while (true) {
+            try {
+                String command = memberViewer.askCommand();
+                switch (command) {
+                case "1":{
+                    String id = memberViewer.askId();
+                    String pw = MyMessageDigest.encrypt(memberViewer.askPw()); // TODO: encrypt
+                    return memberRepository.findByIdAndPw(id, pw);
+                }
+                case "2":{
+                    String id = memberViewer.askId();
+                    String pw = MyMessageDigest.encrypt(memberViewer.askPw()); // TODO: encrypt
+                    String name = memberViewer.askName();
+                    String contact = memberViewer.askContact();
+                    Member member = Member.builder().id(id).pw(pw).name(name).contact(contact).build();
+                    break;
+                }
+                case "3":
+                    memberViewer.printExit();
+                    System.exit(0);
+                default:
+                    throw new Exception("잘못 입력");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                memberViewer.printException(e.getMessage());
+            }
+        }
+    }
+
+    private static DataSource initDataSource() {
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setUrl(URL);
+        basicDataSource.setUsername(USERNAME);
+        basicDataSource.setPassword(PASSWROD);
+        basicDataSource.setInitialSize(INITIAL_SIZE);
+        basicDataSource.setDefaultAutoCommit(false);
+        return basicDataSource;
+    }
+
+}
