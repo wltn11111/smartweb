@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="hollysimg/minilogo.png" rel="shortcut icon" type="image/x-icon">
+  <!--파비콘 링크-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap {}
+
+    .header {
+      height: 145px;
+    }
+
+    .h_inner {
+      width: 950px;
+      height: 145px;
+      margin: 0 auto;
+    }
+
+    .h_innersub {
+      float: left;
+      width: 273px;
+      height: 76px;
+
+    }
+
+    .h_innersub li {
+      display: inline;
+      list-style: none;
+    }
+
+    .h_innersubimg1 {
+      margin-left: 3px;
+      margin-bottom: 40px;
+    }
+
+    .h_innersubimg2 {
+      margin-left: 8px;
+      margin-bottom: 43px;
+    }
+
+    .h_innernav {
+      float: right;
+      margin-top: 20px
+    }
+
+    .h_innernav li {
+      display: inline;
+      list-style: none;
+      padding-left: 5px;
+    }
+
+    .h_innernavimg {
+      margin-bottom: 2px;
+    }
+
+    .h_logo {
+      float: left;
+      padding-top: 20px;
+      padding-left: 128px;
+      width: 100px;
+    }
+
+    .header li {
+      list-style: none;
+    }
+
+    .h_menu {
+      clear: both;
+      text-align: center;
+      padding-top: 20px;
+      margin-right:20px;
+    }
+
+    hr {
+      border: 1px solid;
+      color: #B70000;
+    }
+
+    .s_mainvisual {
+      height: 480px;
+      margin-bottom: 40px;
+    }
+
+    .c_wrap {
+      width: 940px;
+      height: 980px;
+      margin: 0 auto;
+    }
+
+    .contents {
+      width: 940px;
+      height: 980px;
+    }
+
+    .c_mainlist {
+      width: 940px;
+      height: 272px;
+    }
+
+    .mainlist_left {
+      float: left;
+      height: 252px;
+      background: #F9F9F9;
+      padding-top: 20px;
+    }
+
+    .mainlist_left li {
+      list-style: none;
+    }
+
+    .mainlist_leftimg {
+      margin-left: 20px;
+    }
+
+    .mainlist_center {
+      float: left;
+      width: 460px;
+      margin-left: 20px;
+    }
+
+    .main_centertitle {
+      margin-top: 20px;
+    }
+
+    .mainlist_center li {
+      list-style: none;
+    }
+
+    .mainlist_bingsu {
+      float: left;
+      margin-top: 20px;
+    }
+
+    .mainlist_bingsu li {
+      list-style: none;
+      display: inline;
+    }
+
+    .mainlist_bingsuimg {
+      width: 130px;
+      height: 150px;
+    }
+
+    .mainlist_bar {
+      height: 140px;
+    }
+
+    .mainlist_right {
+      float: right;
+      height: 252px;
+      background: #F9F9F9;
+      padding-top: 20px;
+    }
+
+    .mainlist_right li {
+      list-style: none;
+    }
+
+    .mainlist_rightimg {
+      margin-left: 20px;
+    }
+
+    .mainlist02 {
+      float: left;
+      height: 160px;
+      margin-top: 40px;
+    }
+
+    .mainlist02 li {
+      list-style: none;
+      display: inline;
+    }
+
+    .mainlist02 ul {
+      width: 940px;
+      height: 160px;
+    }
+
+    .mainlist02img {
+      margin-left: 4px;
+    }
+
+    .mainlist03 {
+      clear: both;
+      height: 120px;
+      padding-top: 20px;
+    }
+
+    .m03_list01 {
+      float: left;
+      height: 120px;
+    }
+
+    .m03_list01 li {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .m03_list01 ul {
+      width: 205px;
+      font-size: 12px;
+    }
+
+    .m03_list02 {
+      float: left;
+      margin-left: 35px;
+      width: 205px;
+      height: 120px;
+    }
+
+    .m03_list02 li {
+      list-style: none;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .m03_list03 {
+      float: left;
+      margin-left: 35px;
+      width: 230px;
+      height: 120px;
+    }
+
+    .m03_list03info {
+      float: left;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .m03_list03info li {
+      list-style: none;
+      font-size: 12px;
+      padding-top: 2px;
+    }
+
+    .m03_list03day {
+      margin-top: 33px;
+      float: right;
+      margin-right: 10px;
+    }
+
+    .m03_list03day li {
+      list-style: none;
+      font-size: 12px;
+      padding-top: 2px;
+
+    }
+
+    .m03_list03 {
+      float: left;
+      margin-left: 35px;
+      width: 230px;
+      height: 120px;
+    }
+
+
+    .m03_list04 {
+      float: right;
+      width: 205px;
+      height: 120px;
+      font-size: 12px;
+      margin-right: 10px;
+    }
+
+    .m03_04listimg {
+      font-size: 12px;
+    }
+
+    .m03_04listimg li {
+      list-style: none;
+      display: inline;
+      padding: 3px;
+    }
+
+    .m03_04imgsize {
+      margin-bottom: 20px;
+    }
+
+    .m03_04list li {
+      list-style: none;
+      display: inline;
+      padding-right: 5px;
+    }
+
+    .sns_wrap {
+      height: 184px;
+    }
+
+    .sns_wrap hr {
+      margin-top: 50px;
+    }
+
+    .sns_list {
+      float: left;
+      width: 400px;
+      margin-top: 40px;
+
+    }
+
+    .sns_list li {
+      list-style: none;
+      display: inline;
+    }
+
+    .sns_loding {
+      clear: both;
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .footer {
+      height: 148px;
+      background-color: #B70000;
+    }
+
+    .f_wrap {
+      width: 940px;
+      height: 100px;
+      margin: 0 auto;
+
+    }
+
+    .f_info {
+      float: left;
+      color: white;
+      font-size: 12px;
+      margin-top: 30px;
+    }
+
+    .f_info li {
+      display: inline;
+      list-style: none;
+    }
+
+    .f_footernav {
+      width: 84;
+      margin-top: 20px;
+    }
+
+    .f_office {
+      clear: both;
+      float: left;
+      color: white;
+      font-size: 11px;
+      margin-top: 20px;
+      color: #DE898D;
+    }
+
+    .f_office li {
+      list-style: none;
+    }
+    #main_nav{
+      height: 39px;
+    }
+    #main_nav li {
+      display: inline;
+      width: 100px;
+    }
+
+    #m_nav01 {
+      padding-left: 50px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+      padding-right: 50px;
+    }
+    #m_nav02 {
+      padding-left: 25px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+      padding-right: 25px;
+    }
+    #m_nav03 {
+      padding-left: 25px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+      padding-right: 25px;
+    }
+    #m_nav04 {
+      padding-left: 25px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+      padding-right: 25px;
+    }
+    #m_nav05 {
+      padding-left: 50px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+      padding-right: 50px;
+    }
+    #m_nav06 {
+      padding-left: 25px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+      padding-right: 25px;
+    }
+
+    #sub {
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      /* top: 130px; */
+      left: 0;
+      right: 0;
+      background-color: rgb(88, 89, 81);
+      border-bottom: 1px solid #ccc;
+    }
+
+    #sub_menu {
+      overflow: hidden;
+      width: 960px;
+      margin: 0 auto;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    #sub_menu .s_menu {
+      width: 150px;
+      float: left;
+    }
+
+    #sub_menu .s_menu li {
+      padding-bottom: 8px;
+
+    }
+
+    .h_smenulong {
+      padding-left: 5px;
+      padding-right: 10px;
+    }
+
+    .h_smenushort {
+      padding-right: 5px;
+    }
+
+    .h_smenushort01 {
+      margin: 0;
+    }
+
+    #sub_menu .s_menu li a {
+      color: rgb(219, 219, 217);
+      font-size: 12px;
+    }
+
+    .main_navov {
+      background-color: #B70000;
+    }
+    .bx-wrapper{
+      border:0;
+    }
+
+    .bx-wrapper .bx-pager {
+    text-align: center;
+    font-size: .85em;
+    font-family: Arial;
+    font-weight: bold;
+    color: #666;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.bx-wrapper .bx-controls-direction a {
+  opacity:0; /*안보이게하는 기능*/
+}
+
+  </style>
+
+</head>
+<script>
+  $(function() {
+    $("#m_nav01").hover(function() {
+      $("img[alt='menu01']").attr("src", "hollysimg/gnb_01_on.png");
+    }, function() {
+      $("img[alt='menu01']").attr("src", "hollysimg/gnb_01.png");
+    });
+  });
+  $(function() {
+    $("#m_nav02").hover(function() {
+      $("img[alt='menu02']").attr("src", "hollysimg/gnb_02_on.png");
+    }, function() {
+      $("img[alt='menu02']").attr("src", "hollysimg/gnb_02.png");
+    });
+  });
+  $(function() {
+    $("#m_nav03").hover(function() {
+      $("img[alt='menu03']").attr("src", "hollysimg/gnb_03_on.png");
+    }, function() {
+      $("img[alt='menu03']").attr("src", "hollysimg/gnb_03.png");
+    });
+  });
+  $(function() {
+    $("#m_nav04").hover(function() {
+      $("img[alt='menu04']").attr("src", "hollysimg/gnb_04_on.png");
+    }, function() {
+      $("img[alt='menu04']").attr("src", "hollysimg/gnb_04.png");
+    });
+  });
+  $(function() {
+    $("#m_nav05").hover(function() {
+      $("img[alt='menu05']").attr("src", "hollysimg/gnb_05_on.png");
+    }, function() {
+      $("img[alt='menu05']").attr("src", "hollysimg/gnb_05.png");
+    });
+  });
+  $(function() {
+    $("#m_nav06").hover(function() {
+      $("img[alt='menu06']").attr("src", "hollysimg/gnb_06_on.png");
+    }, function() {
+      $("img[alt='menu06']").attr("src", "hollysimg/gnb_06.png");
+    });
+  });
+</script>
+<script>
+  $(function() {
+    $('#main_nav ul li').hover(
+      function() {
+        $(this).addClass('main_navov');
+      },
+      function() {
+        $(this).removeClass('main_navov');
+      });
+  });
+</script>
+<script>
+  $(function() {
+    $('#sub').hide();
+    $('#main_nav').hover(function() {
+      $(this).parent().find('#sub').slideDown();
+      $(this).parent().hover(function() {
+
+      }, function() {
+        $(this).parent().find('#sub').slideUp(900);
+      });
+    });
+  });
+</script>
+<script>
+  $(document).ready(function() {
+    $('.slider').bxSlider({
+     mode:'horizontal',
+     auto: true,
+     speed: 600,
+     pause: 4000
+    });
+  });
+</script>
+
+<body>
+  <div class="wrap">
+    <!-- header -->
+    <div class="header">
+      <div class="h_inner">
+        <div class="h_innersub">
+          <ul>
+            <li><img src="hollysimg/gnb_smenu01.png" alt=""></li>
+            <li><img class="h_innersubimg1" src="hollysimg/gnb_smenu02_2.gif" alt=""></li>
+            <li><img class="h_innersubimg2" src="hollysimg/gnb_smenu04.gif" alt=""></li>
+          </ul>
+        </div>
+        <div class="h_logo">
+          <img src="hollysimg/logo.gif" alt="">
+        </div>
+        <div class="h_innernav">
+          <ul>
+            <li><img class="h_innernavimg" src="hollysimg/util_login.gif"></li>
+            <li><img class="h_innernavimg" src="hollysimg/util_join.gif"></li>
+            <li><img class="h_innernavimg" src="hollysimg/util_09.gif"></li>
+            <li><img src="hollysimg/util_05.gif"></li>
+            <li><img src="hollysimg/util_chinese.gif"></li>
+          </ul>
+        </div>
+        <div class="h_menu">
+          <div id="main_nav">
+            <ul>
+              <li id="m_nav01"><a href=""><img src="hollysimg/gnb_01.png" alt="menu01"></a></li>
+              <li id="m_nav02"><a href=""><img src="hollysimg/gnb_02.png" alt="menu02"></a></li>
+              <li id="m_nav03"><a href=""><img src="hollysimg/gnb_03.png" alt="menu03"></a></li>
+              <li id="m_nav04"><a href=""><img src="hollysimg/gnb_04.png" alt="menu04"></a></li>
+              <li id="m_nav05"><a href=""><img src="hollysimg/gnb_05.png" alt="menu05"></a></li>
+              <li id="m_nav06"><a href=""><img src="hollysimg/gnb_06.png" alt="menu06"></a></li>
+            </ul>
+          </div>
+          <!--sub_menu-->
+          <div id="sub">
+            <div id="sub_menu">
+              <ul class="s_menu h_smenulong">
+                <li><a href="#">NEW menu</a></li>
+                <li><a href="#">COFFEE</a></li>
+                <li><a href="#">라떼/초콜릿/티</a></li>
+                <li><a href="#">할리치노/빙수</a></li>
+                <li><a href="#">스파클링/아이스티</a></li>
+                <li><a href="#">베이커리/스낵MD</a></li>
+                <li><a href="#">MD상품</a></li>
+                <li><a href="#">MD원두</a></li>
+              </ul>
+              <ul class="s_menu h_smenushort">
+                <li><a href="#">할리스콘</a></li>
+                <li><a href="#">할리스 기프트카드</a></li>
+              </ul>
+              <ul class="s_menu h_smenushort">
+                <li><a href="#">스마트 오더 서비스안내</a></li>
+                <li><a href="#">멤버십 혜택안내</a></li>
+              </ul>
+              <ul class="s_menu h_smenulong">
+                <li><a href="#">Notice</a></li>
+                <li><a href="#">Event</a></li>
+              </ul>
+              <ul class="s_menu h_smenushort01">
+                <li><a href="#">국내</a></li>
+              </ul>
+              <ul class="s_menu">
+                <li><a href="#">HOLLYS Coffee</a></li>
+                <li><a href="#">About Coffee</a></li>
+                <li><a href="#">CSR</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">혜택 안내</a></li>
+                <li><a href="#">본사 위치</a></li>
+                <li><a href="#">채용 안내</a></li>
+                <li><a href="#">가맹 개설안내</a></li>
+                <li><a href="#">B2B 사업 소개</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <hr />
+    <!-- <//header> -->
+    <div class="s_mainvisual">
+      <div class="slider">
+        <div><img src="hollysimg/main/slide01.jpg"></div>
+      </div>
+    </div>
+    </div>
+    <div class="c_wrap">
+      <div class="contents">
+        <div class="c_mainlist">
+          <div class="mainlist_left">
+            <ul>
+              <li><img class="mainlist_leftimg" src="hollysimg/main/menu_tit.gif"></li>
+              <li><img src="hollysimg/main/menu_img01.gif" width="225" height="230"></li>
+            </ul>
+          </div>
+          <div class="mainlist_center">
+            <div class="main_centertitle">
+              <ul>
+                <li><img src="hollysimg/main/mall_tit.gif"></li>
+                <li><img src="hollysimg/main/mall_txt.gif"></li>
+              </ul>
+            </div>
+            <div class="mainlist_bingsu">
+              <ul>
+                <li><img class="mainlist_bingsuimg" src="hollysimg/main/bing1.PNG"></li>
+                <li><img class="mainlist_bar" src="hollysimg/main/mall_bar01.gif"></li>
+                <li><img class="mainlist_bingsuimg" src="hollysimg/main/bing2.PNG"></li>
+                <li><img class="mainlist_bar" src="hollysimg/main/mall_bar01.gif"></li>
+                <li><img class="mainlist_bingsuimg" src="hollysimg/main/bing3.PNG"></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mainlist_right">
+            <ul>
+              <li><img class="mainlist_rightimg" src="hollysimg/main/store_tit.gif"></li>
+              <li><img src="hollysimg/main/store_img01.gif" width="225" height="230"></li>
+            </ul>
+          </div>
+        </div>
+        <!-- mainlist02 -->
+        <div class="mainlist02">
+          <ul>
+            <li><img src="hollysimg/main/img_banner_membership.jpg"></li>
+            <li class="mainlist02img"><img src="hollysimg/main/gift.jpg"></li>
+          </ul>
+        </div>
+        <!-- mainlist02 -->
+        <!-- mainlist03 -->
+        <div class="mainlist03">
+          <div class="m03_list01">
+            <ul>
+              <li><img src="hollysimg/main/academy_tit.gif"></li>
+              <li>할리스커피 아카데미와 함께하는 즐거운 커피 여행!</li>
+              <li><img src="hollysimg/main/ico_arrow.gif"> 바로가기</li>
+            </ul>
+          </div>
+          <div class="m03_list02">
+            <ul>
+              <li><img src="hollysimg/main/b2b_tit.gif"></li>
+              <li>
+                <p>할리스 F&B는 20년의 커피 노하우를</p>
+                <p>기반으로 한 할리스 B2B 솔루션을</p>
+                소개합니다.
+              </li>
+              <li><img src="hollysimg/main/ico_arrow.gif"> 바로가기</li>
+            </ul>
+          </div>
+          <div class="m03_list03">
+            <ul class="m03_list03info">
+              <li><img src="hollysimg/main/news_tit.gif"> <img src="hollysimg/main/ico_arrow.gif"></li>
+              <li>
+                <ul>
+                  <li>SKTelecom T멤버십 VIP PI</li>
+                  <li>LGU+ 멤버십 제휴 제외 매</li>
+                  <li> 2020 플래너 - 4종 쿠펀 사</li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="m03_list03day">
+              <li>04-11</li>
+              <li>05-02</li>
+              <li>01-06</li>
+            </ul>
+          </div>
+          <div class="m03_list04">
+            <ul class="m03_04listimg">
+              <li><img class="m03_04imgsize" src="hollysimg/main/img_etc01.gif"></li>
+              <li><img src="hollysimg/main/bar.png"></li>
+              <li><img class="m03_04imgsize" src="hollysimg/main/img_etc02.gif"></li>
+              <li><img src="hollysimg/main/bar.png"></li>
+              <li><img class="m03_04imgsize" src="hollysimg/main/img_etc03.gif"></li>
+            </ul>
+            <ul class="m03_04list">
+              <li>창업안내</li>
+              <li>아카데미강좌</li>
+              <li>고객센터</li>
+            </ul>
+          </div>
+        </div>
+        <!-- mainlist03 -->
+        <!-- sns_wrap -->
+        <div class="sns_wrap">
+          <hr>
+          <ul class="sns_list">
+            <li><img src="hollysimg/main/sns_tit.gif"> </li>
+            <li><img src="hollysimg/main/sns_facebook.gif"> </li>
+            <li><img src="hollysimg/main/sns_instagram.gif"> </li>
+            <li><img src="hollysimg/main/sns_blog.gif"> </li>
+          </ul>
+          <div class="sns_loding"><img src="hollysimg/main/ajax-loader.gif"> </div>
+        </div>
+        <!-- sns_wrap -->
+      </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+      <div class="f_wrap">
+        <div class="f_info">
+          <ul>
+            <li class="f_footernav"><b>개인정보처리방침</b></li>
+            <li>|</li>
+            <li>서비스이용약관</li>
+            <li>|</li>
+            <li>멤버십이용약관</li>
+            <li>|</li>
+            <li>고객문의</li>
+            <li>|</li>
+            <li>고객설문</li>
+            <li>|</li>
+            <li>사이트맵</li>
+            <li>|</li>
+            <li>BI설계</li>
+          </ul>
+        </div>
+        <ul class="f_office">
+          <li>법인명: (주)할리스에프앤비 대표자: 김유진 사업자등록번호
+            211-87-61044 통신판매업: 제2019-서울종로-0193호</li>
+          <li>주소: 서울특별시 종로구 율곡로 88 상환빌딩 8층 (운니동)
+            대표전화: 02-2183-7100 (가맹문의: 1670-4432)</li>
+          <li>COPYRIGHT(C)HOLLYS COFFEECo.,Ltd.All Rights Reserved.</li>
+        </ul>
+      </div>
+    </div>
+    <!-- footer -->
+  </div>
+</body>
+
+</html>
