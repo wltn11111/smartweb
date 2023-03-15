@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+            border: 1px solid black;
+        }
+
+        .header_bottom>.nav-pills>.nav-item:hover {
+            background-color: #00dc64;
+            color: white;
+        }
+        .card>img:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row header">
+            <div class="col-12 header_top">
+                <div class="row">
+                    <nav class="col-6 nav">
+                        <a class="nav-link active" aria-current="page" href="#">Naver</a>
+                        <a class="nav-link disabled">웹툰</a>
+                        <a class="nav-link disabled">웹소설</a>
+                        <a class="nav-link disabled">시리즈</a>
+                    </nav>
+                    <nav class="col-2 nav" class="w-100"></nav>
+                    <nav class="col-4 navbar bg-body-tertiary">
+                        <div class="container-fluid" >
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="제목/작가로 검색할 수 있습니다." aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-12 header_bottom">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link disabled">홈</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active">웹툰</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">베스트도전</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">도전만화</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">마이페이지</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row navi">
+            <div class="col-12 navi_title">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">수요웹툰</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                          <a class="nav-link" href="#">인기순</a>
+                          <a class="nav-link" href="#">업데이트순</a>
+                          <a class="nav-link disabled">조회순</a>
+                          <a class="nav-link disabled">별점순</a>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+            <div class="col-12 navi_pic1 ">
+                <div class="row navipicture d-flex justify-content-center">
+                    <div class="col-2 card">
+                        <img src="1.PNG" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">전지적 독자 시점<br>UMI/ 슬리피-C/ 싱숑
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <img src="2.PNG" class="card-img-top " alt="...">
+                        <div class="card-body">
+                            <p class="card-text">연놈<br>상하</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <img src="3.PNG" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">헬퍼2 : 킬베로스<br>삭</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <img src="4.PNG" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">백XX<br>병장,박태준 만화회사 / 펀치킥</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <img src="5.PNG" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">격기3반<br>이학</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 navi_banner text-center ">
+                <a href=""><img src="캡처.PNG" class="col-12 col-lg-12 img-thumbnail"></a>
+            </div>
+        </div>
+        <div class="row body">
+            <div class="col-6 col-lg-8 content_main d-flex justify-content-start">contents</div>
+            <div class="col-6 col-lg-4 side_menu">
+                <div class="row">
+                    <div class="col-12">banner</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">인기웹툰</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">랭킹웹툰</div>
+                </div>
+            </div>
+        </div>
+        <div class="row footer">footer</div>
+    </div>
+</body>
+
+</html>
