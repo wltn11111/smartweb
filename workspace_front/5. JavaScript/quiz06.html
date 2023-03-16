@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="num1">
+    </div>
+    <div>
+        <input type="text" id="num2">
+    </div>
+    <div>
+        <button id="btn">+</button>
+    </div>
+    <div id="result"></div>
+
+
+    <script>
+
+        var number1 = document.getElementById("num1");
+        var number2 = document.getElementById("num2");
+        var btn = document.getElementById("btn");
+
+        btn.onclick = function () {
+            result.innerHTML = "정답은 : " + (parseInt(number1.value) + parseInt(number2.value));
+            number1 = "";
+            number2 = "";
+        }
+
+    </script>
+</body>
+
+</html>

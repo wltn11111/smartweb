@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 이벤트 : 브라우저에서 감지되는 모든 행동을 부르는 용어 -->
+    <!-- 이벤트 소스 ( Event Source ) : 이벤트 발생시 이벤트의 근원(출발)지 -->
+    <!-- 이벤트 리스너 ( Event Listener ) : HTML 요소가 내장하고 있는 이벤트 감지 포인트 -->
+    <!-- 이벤트 핸들러 ( Event Handler ) : 이벤트가 감지되었을 때 취할 행동을 지침하는 함수-->
+
+    <button id="btn">버튼</button>
+
+    <script>
+        // function evtHandler(){
+        //     alert("이벤트 감지!");
+        // }
+        var btn = document.getElementById("btn");
+        // callback function : 함수를 생성후 개발자가 직접 콜하는 것이 아닌,
+        // 특정 시스템 또는 인스턴스에 등록해두면 특정 조건을 만족하는 trigger 발생시
+        // 스스로 실행되는 함수
+
+        btn.onclick = function () { alert("이벤트 발생!") }; 
+        // btn.onclick = evtHandler;   
+
+    </script>
+</body>
+
+</html>
