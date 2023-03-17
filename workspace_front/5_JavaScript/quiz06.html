@@ -9,28 +9,23 @@
 </head>
 
 <body>
-    <div>
-        <input type="text" id="num1">
-    </div>
-    <div>
-        <input type="text" id="num2">
-    </div>
-    <div>
-        <button id="btn">+</button>
-    </div>
-    <div id="result"></div>
-
+    <fieldset>
+        <input type="text" id="num1" placeholder="첫번째 수"><br>
+        <input type="text" id="num2" placeholder="두번째 수"><br>
+        <button id="btn">+</button><br>
+        <div id="result"></div>
+    </fieldset>
 
     <script>
-
+        var btn = document.getElementById("btn");
         var number1 = document.getElementById("num1");
         var number2 = document.getElementById("num2");
-        var btn = document.getElementById("btn");
+        var result = document.getElementById("result");
 
         btn.onclick = function () {
             result.innerHTML = "정답은 : " + (parseInt(number1.value) + parseInt(number2.value));
-            number1 = "";
-            number2 = "";
+            number1.value = ""; number2.value = "";
+            number1.focus();
         }
 
     </script>

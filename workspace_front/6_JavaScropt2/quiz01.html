@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Fruits</legend>
+        <div id="fruits"></div>
+    </fieldset>
+
+    <input type="text" id="text1" placeholder="앞에 추가할 값">
+    <button id="frontadd">앞쪽에 추가</button>
+    <button id="frontremove">앞에서 삭제</button><br>
+
+    <input type="text" id="text2" placeholder="뒷쪽에 추가할 값">
+    <button id="backadd">뒷쪽에 추가</button>
+    <button id="backremove">뒤에서 삭제</button>
+
+    <script>
+        var fruits = document.getElementById("fruits");
+
+        var frontadd = document.getElementById("frontadd");
+        var frontremove = document.getElementById("frontremove");
+
+        var backadd = document.getElementById("backadd");
+        var backremove = document.getElementById("backremove");
+
+        var text1 = document.getElementById("text1");
+        var text2 = document.getElementById("text2");
+
+        var arr = [];
+
+        frontadd.onclick = function () {
+            var val = text1.value;
+            if (val != "") {
+                arr.unshift(val);
+                fruits.innerHTML = arr;
+                text1.value = "";
+            }
+        }
+
+        frontremove.onclick = function () {
+            arr.shift();
+            fruits.innerHTML = arr;
+        }
+
+        backadd.onclick = function () {
+
+            var val = text2.value;
+            if (val != "") {
+                arr.push(val);
+                fruits.innerHTML = arr;
+                text2.value = "";
+            }
+        }
+
+        backremove.onclick = function () {
+            arr.pop();
+            fruits.innerHTML = arr;
+        }
+    </script>
+</body>
+
+</html>

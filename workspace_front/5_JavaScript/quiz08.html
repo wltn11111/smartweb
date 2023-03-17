@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 1px solid black;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        #btn {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">i`m Box!</div>
+    <button id="btn">버튼</button>
+
+    <script>
+        var box = document.getElementById("box");
+        var btn = document.getElementById("btn");
+
+        document.onmousemove = function (e) {
+            btn.style.top = e.y + "px";
+            btn.style.left = e.x + "px";
+
+        }
+        box.onmouseover = function () {
+            box.innerHTML = "너무 무거워....";
+        }
+
+        box.onmouseout = function () {
+            box.innerHTML = "너무 멀리가진 말고...";
+        }
+
+        box.onmousemove = function () {
+            console.log("마우스 움직임");
+        }
+
+
+
+    </script>
+</body>
+
+</html>

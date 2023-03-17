@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="pas1"><br>
+    <input type="text" id="pas2">
+    <div id="text"></div>
+
+    <script>
+        var pasw1 = document.getElementById("pas1");
+        var pasw2 = document.getElementById("pas2");
+        var text = document.getElementById("text");
+
+        pasw2.onkeyup = function (e) {
+
+            // console.log(e.keyCode);
+            if (e.keyCode == 13) {
+                var pw = pasw1.value;
+                var repw = pasw2.value;
+                
+                if (pasw1.value == pasw2.value) {
+                    text.innerHTML = "올바른 값입니다."
+                    text.setAttribute("style", "color:blue;");
+                } else if (pasw1.value != pasw2.value) {
+                    text.innerHTML = "틀린값입니다."
+                    text.setAttribute("style", "color:pink;");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
