@@ -14,6 +14,7 @@
 <body>
     <fieldset>
         <legend>Fruits</legend>
+        <!-- <div id="list"></div> -->
         <div id="fruits"></div>
     </fieldset>
 
@@ -24,6 +25,7 @@
     <input type="text" id="text2" placeholder="뒷쪽에 추가할 값">
     <button id="backadd">뒷쪽에 추가</button>
     <button id="backremove">뒤에서 삭제</button>
+    <button id="alldel">전체 삭제</button>
 
     <script>
         var fruits = document.getElementById("fruits");
@@ -37,16 +39,31 @@
         var text1 = document.getElementById("text1");
         var text2 = document.getElementById("text2");
 
+        // var divList = document.getElementById("list");
+        var alldel = document.getElementById("alldel");
+
         var arr = [];
+
+        alldel.onclick = function () {
+            arr = [];
+            fruits.innerHTML = arr;
+        }
 
         frontadd.onclick = function () {
             var val = text1.value;
+            // temp = temp.trim();
             if (val != "") {
                 arr.unshift(val);
                 fruits.innerHTML = arr;
                 text1.value = "";
+            } else {
+                alert("과일명을 입력하세요.");
+                text1.focus();
             }
         }
+
+        // trim() : 문자열의 양쪽에서 공백문자를 제거하는 함수
+        // ex)  '      abc     ' -> 'abc'
 
         frontremove.onclick = function () {
             arr.shift();
@@ -60,6 +77,9 @@
                 arr.push(val);
                 fruits.innerHTML = arr;
                 text2.value = "";
+            } else {
+                alert("과일명을 입력하세요.");
+                text1.focus();
             }
         }
 

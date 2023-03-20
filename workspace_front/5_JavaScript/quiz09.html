@@ -18,19 +18,25 @@
         var pasw2 = document.getElementById("pas2");
         var text = document.getElementById("text");
 
-        pasw2.onkeyup = function (e) {
+        pasw2.onkeyup = function (en) {
 
             // console.log(e.keyCode);
-            if (e.keyCode == 13) {
+            if (en.keyCode == 13) {
                 var pw = pasw1.value;
                 var repw = pasw2.value;
                 
                 if (pasw1.value == pasw2.value) {
                     text.innerHTML = "올바른 값입니다."
                     text.setAttribute("style", "color:blue;");
+                    pasw1.value = ""
+                    pasw2.value = ""
+                    pasw1.focus();
                 } else if (pasw1.value != pasw2.value) {
                     text.innerHTML = "틀린값입니다."
                     text.setAttribute("style", "color:pink;");
+                    pasw1.value = ""
+                    pasw2.value = ""
+                    pasw1.focus();
                 }
             }
         }
