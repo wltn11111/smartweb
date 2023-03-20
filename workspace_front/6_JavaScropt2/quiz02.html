@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>목록</legend>
+        <div id="fruits"></div>
+    </fieldset>
+    <input type="text1" id="text1" placeholder="추가할 단어를 입력하세요."><button id="add">추가하기</button><br>
+    <input type="text2" id="text2" placeholder="삭제할 단어를 입력하세요."><button id="del">삭제하기</button>
+
+
+    <script>
+        var fruits = document.getElementById("fruits");
+
+        var text1 = document.getElementById("text1");
+        var text2 = document.getElementById("text2");
+
+        var textadd = document.getElementById("add");
+        var textdel = document.getElementById("del");
+
+        var arr = [];
+
+        textadd.onclick = function () {
+            var val = text1.value;
+            if (val != "") {
+                arr.push(val);
+                fruits.innerHTML = arr;
+                text1.value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
