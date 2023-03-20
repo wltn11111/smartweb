@@ -36,6 +36,16 @@
                 text1.value = "";
             }
         }
+
+        textdel.onclick = function () {
+            var index = arr.indexOf(text2.value);
+            if (text2.value != "" && index != -1) {
+                arr.splice(index, 1);
+                fruits.innerHTML = arr;
+                text2.value = "";
+            }
+        }
+
     </script>
 </body>
 
