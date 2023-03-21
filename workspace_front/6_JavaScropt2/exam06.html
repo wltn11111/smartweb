@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
     <title>Document</title>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
+
 <body>
     <!-- WEB API -->
     <!-- API ( Application programming Interface ) -->
@@ -17,19 +18,20 @@
     <input type="button" value="우편번호 찾기" id="search"><br>
     <input type="text" id="roadAddress" placeholder="도로명주소">
     <input type="text" id="detailAddress" placeholder="상세주소">
-    
+
     <script>
-       document.getElementById("search").onclick = function () {
-            new daum.Postcode({
-                oncomplete: function(data) {
+        document.getElementById("search").onclick = function () {
+            new daum.Postcode({     // Postcode 익명객체 var postCode = new daum.PostCode({});
+                oncomplete: function (data) {
                     var roadAddr = data.roadAddress; // 도로명 주소 변수
                     document.getElementById('postcode').value = data.zonecode;
                     document.getElementById("roadAddress").value = roadAddr;
                 }
-            }).open();
+            }).open();      // postCode.open();
         }
     </script>
 
 
 </body>
+
 </html>
