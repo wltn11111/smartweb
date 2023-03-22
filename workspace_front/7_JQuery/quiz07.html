@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        table,tr,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Input Controls</legend>
+        <input type="text" id="title" placeholder="제목입력"><br>
+        <input type="text" id="content" placeholder="내용입력"><br>
+        <input type="text" id="name" placeholder="작성자 입력">
+        <button id="addtext">추가하기</button>
+    </fieldset>
+    <div id="tabletext">
+        <table>
+            <tbody id="tbody">
+                <tr>
+                    <td>제목</td>
+                    <td>내용</td>
+                    <td>작성자</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var tbody = $("#tbody");
+        var addtext = $("#addtext");
+
+        $('#addtext').on('click', function () {
+            var title = $('#title').val();
+            var content = $('#content').val();
+            var name = $('#name').val();
+
+            var tr = $('<tr>');
+            var td = $('<td>');
+            var td1 = td.clone();
+            var td2 = td.clone();
+            var td3 = td.clone();
+
+            tbody.append(tr.prepend(td1.append(title)));
+            td1.after(td2.append(content));
+            td2.after(td3.append(name));
+
+            $('#title').val("");
+            $('#content').val("");
+            $('#name').val("");
+            $('#title').focus();
+
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>

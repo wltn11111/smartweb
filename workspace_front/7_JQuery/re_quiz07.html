@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        table,td,tr {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Input Controls</legend>
+        <input type="text" id="title" placeholder="제목입력"><br>
+        <input type="text" id="content" placeholder="내용입력"><br>
+        <input type="text" id="writer" placeholder="작성자 입력">
+        <button id="register">추가하기</button>
+    </fieldset>
+    <div id="tabletext">
+        <table>
+            <thead>
+                <tr>
+                    <td>제목</td>
+                    <td>내용</td>
+                    <td>작성자</td>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const inputTitle = $('#title');
+        const inputContent = $('#content');
+        const inputWrtier = $('#writer');
+        const tableBody = $('#table-body');
+
+        $('#register').on('click', () => {
+            const title = $('<td>').text(inputTitle.val());
+            const content = $('<td>').text(inputContent.val());
+            const writer = $('<td>').text(inputWrtier.val());
+
+            $('<tr>').append(title, content, writer).appendTo(tableBody);
+
+            inputTitle.val('');
+            inputContent.val('');
+            inputWrtier.val('');
+        });
+    </script>
+</body>
+</html>
