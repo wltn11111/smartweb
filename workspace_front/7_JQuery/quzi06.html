@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,48 +8,65 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
-        div{
+
+        div {
             border: 1px solid black;
         }
-        #content{
+
+        #content {
             width: 300px;
             height: 400px;
             margin: auto;
         }
 
-        #box{
+        #box {
             width: 100%;
             height: 70%;
             overflow: auto;
+            background-color: cornflowerblue;
         }
-        #message{
+
+        #message {
             height: 30%;
             line-height: 100px;
         }
-        input{
+
+        input {
             border: none;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
+
 <body>
     <div id="content">
         <div id="box"></div>
         <div id="message">
-            <input type="text" id="msgtext" >
+            <input type="text" id="msgtext">
         </div>
     </div>
 
     <script>
-        // var msgtext = $('#msgtext').val();
-        $('#msgtext').keyup(function(e){
-            if(e.keyCode == 13){
-                $('#box').prepend($('#msgtext').val() + '<br>');
-                $('#msgtext').val("");
+        function updateScroll() {
+            var element = document.getElementById("box");
+            $(element).scrollTop(element.scrollHeight);
+        }
+
+        $('#msgtext').keyup(function (e) {
+            var line = $('#msgtext');
+            if (e.keyCode == 13) {
+                if (line.val() != "") {
+                    $('#box').append(line.val() + '<br>');
+                    line.val("");
+                    updateScroll();
+                }
             }
         });
     </script>
 </body>
+
 </html>
