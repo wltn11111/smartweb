@@ -20,10 +20,23 @@
     </div>
 
     <script>
-        $('#box').before('여기가 Before');
+        var p = $('<p>');
+        p.append("여기가 Before");
+        p.css({'background-color':'forestgreen'});
+
+        var button = $('<button>');
+        button.html('여기가 Append');
+        butoon.attr('id','btn');  // setAttr와 동일
+
+        $('#box').before(p);
         $('#box').after('여기가 After');
         $('#box').prepend('여기가 Prepend<br>');
         $('#box').append('여기가 Append');
+
+        
+
+        $('#box').append(button);
+        
         
         
     </script>
