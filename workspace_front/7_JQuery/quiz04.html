@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://code.jquery.com/jquery-3.6.4.min.js'></script>
+</head>
+<body>
+    <input type="text" id="pw"><br>
+    <input type="text" id="repw">
+    <div id="tex"></div>
+    <button id="btn">TEST</button>
+
+    <script>
+
+         $('#repw').on('keyup', function(){
+            var pw = $('pw').val();
+            var repw = $('repw').val();
+            
+            if($('pw').val() == $('repw').val()){
+                $('#tex').text('패드워드가 일치합니다.');
+                $('#tex').css({'color' : 'blue'});
+            }else{
+                $('#tex').text('패드워드가 일치하지 않습니다.');
+                $('#tex').css({'color' : 'pink'});
+            }
+        });
+    </script>
+    
+</body>
+</html>

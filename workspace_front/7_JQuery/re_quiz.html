@@ -19,14 +19,17 @@
     <input type="text" id="color" placeholder="배경색">
     <br><br>
     <button id="btn">바꾸기</button>
-        <script>
-            $("#btn").on("click",function(){
-                $("#p"+$("#number").val()).css({
-                    "background-color":$("#color").val(),
-                });
-                $("#number").val("");
-                $("#color").val("")
-            });
-        </script>
+
+    <script>
+        $('#btn').on('click',()=>{
+            var number = $('number').val();
+            var color = $('color').val();
+            
+            $('p:nth-child('+number+')').css({'background-color': color});
+            $('#number').val('');
+            $('#color').val('');
+            
+        })
+    </script>
 </body>
 </html>
