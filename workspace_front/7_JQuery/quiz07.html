@@ -21,14 +21,18 @@
         <input type="text" id="content" placeholder="내용입력"><br>
         <input type="text" id="name" placeholder="작성자 입력">
         <button id="addtext">추가하기</button>
+        <input type="text" placeholder="삭제할 항목" id="delTitle">
+        <button id="delete">삭제하기</button>
     </fieldset>
+
     <div id="tabletext">
         <table>
-            <tbody id="tbody">
+            <table border=1 id="table">
                 <tr>
                     <td>제목</td>
                     <td>내용</td>
                     <td>작성자</td>
+                    <td>삭제</td>
                 </tr>
             </tbody>
         </table>

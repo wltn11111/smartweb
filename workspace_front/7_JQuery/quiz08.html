@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    </head>
+    <body>
+
+        파일첨부<button id="addfile">+</button>
+        <fieldset id="filebody">
+            <legend>file list</legend>
+            <div id="file-list">
+
+            </div>
+
+        </fieldset>
+        <script>
+            const fileList = $('#file-list');
+
+
+            let count= 0;
+
+            $('#addfile').on('click',function(){
+                if (count < 5) {
+                    const inputFile = $('<input>').attr('type','file');
+                    const button = $('<button>').text('X').addClass('delete');
+                    
+                    $('<div>').append(inputFile, button, '<br>')
+                        .appendTo(fileList);
+                    count++;
+                } else {
+                    alert('최대 다섯개까지 가능합니다.');
+                }
+            });
+
+
+            $('#filebody').on('click', '.delete' ,function(){
+                $(this).parent().remove();
+                count--;
+           
+     
+    });
+
+        </script>
+    </body>
+</html>

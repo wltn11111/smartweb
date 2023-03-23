@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<style>
+    div{border: 1px solid black;}
+</style>
+<body>
+    <!--부모 방향 검색 : closest() , parent() -->
+    <!-- 자식 방향 검색 : find()-->
+    <!-- 형제 요소 검색 : prev(), next() , siblings()-->
+
+
+    <div id="home">
+        Home
+        <div id="grand_parent">
+            GrandParent
+            <div id="parent01">
+                Parent01
+                <div id="brother01">
+                    Brother01
+                </div>
+                <div id="me">
+                    Me
+                    <div id="sister01">
+                        Sister01
+                        <div id="baby">
+                            Baby01
+                        </div>
+                    </div>
+                    <div id="sister02">
+                        Sister02
+                    </div>
+                </div>
+                <div id="brother02">
+                    Brother02
+                </div>
+            </div>
+            <div id="parent02">
+                Parent02
+            </div>
+        </div>
+        <script>
+            // console.log($("#me").parent());
+            // console.log($("#me").prev());
+            // console.log($("#me").next());
+            // console.log($("#me").siblings());
+
+            //quiz01. me를 기준으로 baby 요소를 찾아 background pink를 적용
+            
+            $("#me").find("#sister01").children().css({'background-color':'pink'});
+            
+
+
+            //quiz02. me를 기준으로 parent02 요소를 찾아 goldenrod를 적용
+            console.log($("#me").parent().next("#parent02").children());
+            $("#me").next("#parent02").children().css({'background-color':'goldenrod'});
+
+            //quiz03. sister02를 기준으로 brother02를 찾아 forestgreen를 적용
+            console.log($("sister02").parent());
+
+            //quiz04. home을 기준으로 sister01 을 찾아 violet을 적용
+            
+            //quzi05. sister02를 기준으로 baby를 찾아 1px dotted dodgerblue 적용
+        </script>
+</body>
+</html>

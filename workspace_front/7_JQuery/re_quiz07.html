@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <style>
         table,td,tr {
             border: 1px solid black;
         }
     </style>
-</head>
-<body>
-    <fieldset>
-        <legend>Input Controls</legend>
-        <input type="text" id="title" placeholder="제목입력"><br>
-        <input type="text" id="content" placeholder="내용입력"><br>
-        <input type="text" id="writer" placeholder="작성자 입력">
-        <button id="register">추가하기</button>
-    </fieldset>
-    <div id="tabletext">
-        <table>
-            <thead>
-                <tr>
-                    <td>제목</td>
-                    <td>내용</td>
-                    <td>작성자</td>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-            </tbody>
-        </table>
-    </div>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Input Controls</legend>
+            <input type="text" id="title" placeholder="제목입력"><br>
+            <input type="text" id="content" placeholder="내용입력"><br>
+            <input type="text" id="writer" placeholder="작성자 입력">
+            <button id="register">추가하기</button><br>
+            <input type="text" placeholder="삭제할 항목" id="delTitle">
+            <button id="delete">삭제하기</button>
+        </fieldset>
+        <div id="tabletext">
+            <table>
+                <thead>
+                    <tr>
+                        <td>제목</td>
+                        <td>내용</td>
+                        <td>작성자</td>
+                        <td>삭제</td>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </div>
 
-    <script>
+        <script>
+        // 동적 바인딩 : 동적으로 추가되는 요소에 이벤트를 주기위햐서는
+        // 그 동적 요소를 포함하는 정적 parent에 이벤트를 할당 해야됨.
+
+
+        
         const inputTitle = $('#title');
         const inputContent = $('#content');
         const inputWrtier = $('#writer');
+        const inputdelet =$('#delete');
+        const btndelete =$("<button class = 'delete'>");
         const tableBody = $('#table-body');
 
+        let row =$("<tr>");
+        
+if (inputTitle.val=="" || inputContent.val=="" || inputWrtier.val==" "){
+alert('입력');
+    return;
+}else{
+
+      
         $('#register').on('click', () => {
             const title = $('<td>').text(inputTitle.val());
             const content = $('<td>').text(inputContent.val());
@@ -47,10 +65,27 @@
 
             $('<tr>').append(title, content, writer).appendTo(tableBody);
 
+
+
             inputTitle.val('');
             inputContent.val('');
             inputWrtier.val('');
         });
+
+    }
+        $('#delete').on('click', ()=>{
+            let arr = tableBody.children().get();
+             let delTitle =$("#delTitle").val();
+             for(let i = 0; i<arr.length; i++){
+                if(arr[i].firstChild.textContent === delTitle){
+             arr[i].remove();
+            $('#delTitle').val('');
+           
+           }
+
+        }
+    });
+
     </script>
-</body>
+    </body>
 </html>
